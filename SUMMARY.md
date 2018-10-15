@@ -6,4 +6,5 @@
 
 * [web安全概述](wang-luo-an-quan-web-an-quan/web-an-quan-gai-shu.md)
 * [反序列化漏洞](wang-luo-an-quan-web-an-quan/web-an-quan.md)
+* [PHP反序列化漏洞](wang-luo-an-quan-web-an-quan/php-fan-xu-lie-hua-lou-dong.md)
 
