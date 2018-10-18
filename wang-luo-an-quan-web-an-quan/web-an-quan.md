@@ -53,7 +53,7 @@ $s2 = unserialize($str);
 $s2->S_print();
 ```
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2848%29.png)
 
 **总结一下，为什么需要序列化和反序列化**
 

@@ -9,4 +9,9 @@
 * [反序列化漏洞](wang-luo-an-quan-web-an-quan/web-an-quan.md)
 * [PHP反序列化漏洞](wang-luo-an-quan-web-an-quan/php-fan-xu-lie-hua-lou-dong.md)
 * [JAVA反序列化漏洞](wang-luo-an-quan-web-an-quan/java-fan-xu-lie-hua-lou-dong.md)
+* [入侵检测技术](wang-luo-an-quan-web-an-quan/ru-qin-jian-ce-ji-shu.md)
+
+## 常见CMS漏洞记录
+
+* [DedeCMS5.7漏洞利用与分析](chang-jian-cms-lou-dong-ji-lu/dedecms5.7-lou-dong-li-yong-yu-fen-xi.md)
 
