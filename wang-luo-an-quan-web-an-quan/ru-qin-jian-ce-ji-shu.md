@@ -6,25 +6,25 @@ description: 入侵检测技术概念
 
 ## 入侵的概念
 
-![&#x5165;&#x4FB5;&#x7684;&#x5F71;&#x54CD;](../.gitbook/assets/image%20%2825%29.png)
+![&#x5165;&#x4FB5;&#x7684;&#x5F71;&#x54CD;](../.gitbook/assets/image%20%2827%29.png)
 
-![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2829%29.png)
+![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2831%29.png)
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 网络入侵与网络攻击
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 ## 入侵检测的概念
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2834%29.png)
 
 ## 入侵检测的作用
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](../.gitbook/assets/image%20%2851%29.png)
 
 ## 入侵行为的特征
 
@@ -64,17 +64,17 @@ FIN - 结束标志
 详解：[http://blog.51cto.com/jim123/1853000](http://blog.51cto.com/jim123/1853000)  
 
 
-![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2833%29.png)
+![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2835%29.png)
 
-![](../.gitbook/assets/image%20%2857%29.png)
+![](../.gitbook/assets/image%20%2859%29.png)
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2837%29.png)
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2853%29.png)
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2832%29.png)
 
 #### 2.针对IP缺陷的攻击
 
@@ -84,9 +84,23 @@ IP报文分片过程：
 
 假如一个4800字节的IP包（IP首部长度为20B），要通过MTU为1500的网络，则需要进行分片。IP片段中偏移字段的值如下图
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 > 片偏移就是某片在原分组的相对位置，以8个字节为偏移单位。所以偏移字段值等于偏移值/8
 
+第一种：假如攻击者仅发送了其中的第一个分片或某个分片，其他的分片不发送，则接收方会等待一段时间（等待时间视具体系统不同而不同），在超时后，接收方会丢弃不完整的分片。当攻击者发送大量的残缺分片，则接收方或因等待过多分片而耗尽内存，导致瘫痪。
 
+特征：属于某个原始IP数据包的分片没有全部发送，则需要判断各分片之间是否满足关系，最后一个分片是否发送。
+
+![](../.gitbook/assets/image%20%2810%29.png)
+
+第二种：泪滴攻击
+
+假如攻击者对正常分片的情况进行修改，把偏移字段设置成不正确的值，在分片重组的时候，可能会出现数据覆盖或断开的情况，就可能导致目标操作系统崩溃。比如，对于上述例子，将偏移字段值设置为0，150，370，555，就会发生数据覆盖；而将其修改为0，185，370，580，则会出现数据断开，这就是所谓的泪滴攻击。
+
+特征：各分片之间偏移值、数据包长度、首部长度之间不满足紧密衔接关系。
+
+![](../.gitbook/assets/image%20%2815%29.png)
+
+#### 3.带源路由选项的IP报文
 
