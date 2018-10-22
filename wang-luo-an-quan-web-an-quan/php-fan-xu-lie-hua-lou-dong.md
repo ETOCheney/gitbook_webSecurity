@@ -135,7 +135,7 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 
 第290行发现调用了screenName变量，我们知道当对象访问一个不可访问或者没有的变量时会调用\_\_get方法，搜索一下看看
 
-![](../.gitbook/assets/image%20%2865%29.png)
+![](../.gitbook/assets/image%20%2866%29.png)
 
 类太多，不一一举例，我们直接查看Typecho\_Request类，发现该类并没有中creenName变量符合我们使用，查看该类\_\_get方法直接调用了get\(\)方法，跟过去看一下
 
@@ -206,7 +206,7 @@ echo serialize($paylod);
 
 我们再去看一下代码
 
-![](../.gitbook/assets/image%20%2869%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
 我们可以借助category来随便传一个对象，当程序调用时触发致命错误，导致程序直接退出，出现回显。  
 

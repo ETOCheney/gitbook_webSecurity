@@ -12,7 +12,7 @@
 
 ## DDos攻击防御技术
 
-* [Untitled](ddos-gong-ji-fang-yu-ji-shu/untitled.md)
+* [初识DDos](ddos-gong-ji-fang-yu-ji-shu/untitled.md)
 
 ## 入侵检测以及WAF技术
 
