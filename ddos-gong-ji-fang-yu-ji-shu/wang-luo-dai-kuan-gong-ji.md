@@ -16,7 +16,7 @@ description: 了解攻击带宽的原理以及方式
 
 ### 直接攻击示意图
 
-![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2873%29.png)
+![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2883%29.png)
 
 ### Ping Flood
 
@@ -32,7 +32,81 @@ Ping Flood 也称为ICMP Flood，是一种常见的拒绝服务攻击（Dos）�
 
 ### 反射攻击示意图
 
-![&#x53CD;&#x5C04;&#x578B;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2826%29.png)
+![&#x53CD;&#x5C04;&#x578B;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2830%29.png)
+
+### 反射攻击——SNMP
+
+> SNMP协议（简单网络管理协议），该协议支持网络管理系统，用以监测连接到网络上的设备是否有任何引起管理关注的情况。通俗的讲，该协议可以帮助运维人员及时的了解设备的运行情况，以便维护。比如某设备现在CPU温度达到65摄氏度、磁盘已经占用90%空间等。
+
+SNMP反射攻击：攻击者发送大量伪造IP（受害者IP）的GETBULK请求给开启了SNMP服务的设备，这些设备返回SNMP查询结果给伪造IP，成为放大器将SNMP响应报文回复给受害者。
 
 
+
+SNMP有多种查询查询方式，分别如下：
+
+* GetRequest：用来获取一个或几个管理信息。用来读取管理信息的内容。
+*  GetNextRequest：用来获取一个管理信息实例的下一个可用实例数据。一般用来遍历SNMP中的表格数据 
+* GetBulkRequest：一般在大量读取大块数据时使用，以提高带宽利用率，并且比使用snmpget、snmpgetnext有更强的容错能力，代理会返回尽可能多的数据，比其它命令更有保证。 
+* GetBulkRequest命令是在SNMPv2c版本中更新的指令，而SNMPv2c也是当前很多设备在互联网上流行的默认版本，所以这类设备容易被利用来进行SNMPDDoS。
+
+### 反射攻击——DNS
+
+> DNS（Domain Name System）：域名系统，是互联网的一项服务。 它作为将域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。
+
+ DNS反射攻击：攻击者发送大量伪造IP（受害者IP）的请求给DNS服务器，DNS服务器成为放大器将DNS响应回复给受害者。
+
+DNS在互联网上有多种类型查询，分别是：
+
+* A记录 
+* NS记录
+* MX记录 
+* CNAME 
+* PTR 
+* SRV等
+
+在DNS查询方式中有一种查询方式可以设置为any，会返回查询域名下的所有查询类型，导致流量放大。
+
+#### windows下查询方式：
+
+![](../.gitbook/assets/image%20%2874%29.png)
+
+#### linux下查询方式
+
+```text
+dig any baidu.com
+```
+
+![](../.gitbook/assets/image%20%2860%29.png)
+
+### 反射攻击——NTP
+
+> NTP（Network Time Protocol）：用于网络连接延时不稳定时不同设备之间通过分组交换进行时钟同步的一个网络协议。
+
+在NTP server 4.2.7p26之前的版本中，默认提供monlist功能，monlist主要用于监控NTP服务器，NTP服务器响应monlist后就会返回与NTP服务器进行过时间同步的最后600个客户端的IP。攻击者可以伪造源ip地址向NAT服务请求monlist。服务器向被攻击者返回最后600个客户端的IP，造成放大。
+
+### 反射攻击——memcached
+
+> Memcache：一套高性能的、分布式内存对象缓存系统。
+>
+> Memcache本不如DNS、NTP等基础协议通用。但类似这Memcache这种反射放大漏洞，一旦被利用，造成的危害也十分恐怖。
+
+#### Memcache UDP反射放大攻击（Memcache DRDoS）
+
+利用Memcache作为DRDoS放大器进行放大的DDoS攻击，其利用memcached协议，发送大量带有被害者IP地址的UDP数据包给放大器主机，然后放大器主机对伪造的IP地址源做出大量回应，形成分布式拒绝服务攻击，从而形成DRDoS反射。
+
+#### 历史事件：
+
+美国东部时间2018年2月28日下午12点15分左右，GitHub遭遇了极为严重的DDoS攻击，最高访问量为1.35Tbps。此次攻击使用的就是Memcache payload。其T级别的DDoS流量为当时最大的攻击流量。
+
+Memcache DRDoS首次在2017-06年度由360Keepers 0kee Team发现，并于2017年11月在PoC2017上公布。会议报告里详细说明袭击的理由和潜在危害。在这份文件中，作者指出了这种攻击的特点：
+
+* Memcache高倍放大，至少超过50k； 
+* Memcache服务器（在反射点的情况下）可以使用全球大量的2017-11估计的全球60k个服务器，并且这些服务器往往具有更高的带宽资源。
+
+基于以上特点，该攻击可以用于发起大规模的DDoS攻击，一些小型攻击组也可能获得以前不具备的大流量攻击能力。
+
+#### 利用方式
+
+* MEMCACHED默认不开启验证
+* stats查询，可返回服务器状态等
 
