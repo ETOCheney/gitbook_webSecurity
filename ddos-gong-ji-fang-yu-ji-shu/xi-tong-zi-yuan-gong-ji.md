@@ -2,7 +2,7 @@
 description: DDos攻击通常以流量来形容DDos攻击规模。但这并非DDos的唯一方式，攻击系统资源同样可以造成DDos攻击。
 ---
 
-# 系统资源攻击
+# 攻击系统资源
 
 针对流量的DDoS攻击为什么通用使用UDP协议？那是因为 UDP面向无连接，双方无需验证对方身份即可传输。而且 UDP协议有更高的传输效率。
 
@@ -25,12 +25,12 @@ description: DDos攻击通常以流量来形容DDos攻击规模。但这并非DD
 
 TCP的3次握手，通信的双方最少得经过3次成功的信息交换才能进入连接全开状态（Full-Open），也就是我常说的建立TCP连接的3次握手（TCP three-way handshake）。
 
-![TCP&#x7684;&#x4E09;&#x6B21;&#x63E1;&#x624B;](../.gitbook/assets/image%20%2847%29.png)
+![TCP&#x7684;&#x4E09;&#x6B21;&#x63E1;&#x624B;](../.gitbook/assets/image%20%2855%29.png)
 
 SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪造源IP发送大量的TCP  SYN报文，使服务器打开大量的半开连接，占满服务器的连接表，从而影响正常用户与服务器建立会话，造成拒绝服务。  
 
 
-![SYN FLOOD ATTACT](../.gitbook/assets/image%20%2864%29.png)
+![SYN FLOOD ATTACT](../.gitbook/assets/image%20%2876%29.png)
 
 #### ACK Flood 攻击
 
@@ -38,9 +38,9 @@ SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪�
 
 在服务器查询过程中会消耗一定的CUP计算资源。如果瞬间收到大量的SYN+ACK数据包，将会消耗服务器的大量cpu资源，导致正常的连接无法建立或增加延迟，甚至造成服务器瘫痪、死机。
 
-![ACK Flood &#x53D1;&#x9001;&#x5927;&#x91CF;&#x7684;SYN+ACK](../.gitbook/assets/image%20%2814%29.png)
+![ACK Flood &#x53D1;&#x9001;&#x5927;&#x91CF;&#x7684;SYN+ACK](../.gitbook/assets/image%20%2816%29.png)
 
-![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%2869%29.png)
+![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%2881%29.png)
 
 #### Sockstress攻击
 
@@ -50,7 +50,7 @@ SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪�
 
 Sockstress攻击首先会完成TCP三次握手以建立TCP连接，但是在三次握手的最后一次ACK应答中，攻击者将其TCP窗口大小设置为0，随后进行数据请求，攻击目标在传输数据时，发现接收端的TCP窗口大小为0，就会停止传输数据，并发出TCP窗口探测包，询问攻击者其TCP窗口是否有更新，由于攻击者不会更改TCP窗口的大小，被攻击目标就会一直维持等待数据发送，并不断进行窗口更新的探测状态。
 
-![Sockstress&#x653B;&#x51FB;](../.gitbook/assets/image%20%284%29.png)
+![Sockstress&#x653B;&#x51FB;](../.gitbook/assets/image%20%285%29.png)
 
 ### SSL链接攻击
 
@@ -74,7 +74,7 @@ THC SSLDOS攻击在进行SSL连接并握手之后，**攻击者反复不断的�
 
 SSL Flood，建议是在数据传输之前，进行SSL握手的过程中发动攻击，攻击者并不需要完成SSL握手和秘钥交换，而只需要在这个过程中让服务器去解密和验证，就能够大量的消耗服务器的计算资源。
 
-![SSL Flood attack](../.gitbook/assets/image%20%288%29.png)
+![SSL Flood attack](../.gitbook/assets/image%20%289%29.png)
 
 
 

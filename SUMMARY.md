@@ -15,7 +15,9 @@
 * [初识DDos](ddos-gong-ji-fang-yu-ji-shu/untitled.md)
 * [僵尸网络](ddos-gong-ji-fang-yu-ji-shu/jiang-shi-wang-luo.md)
 * [网络带宽攻击](ddos-gong-ji-fang-yu-ji-shu/wang-luo-dai-kuan-gong-ji.md)
-* [系统资源攻击](ddos-gong-ji-fang-yu-ji-shu/xi-tong-zi-yuan-gong-ji.md)
+* [攻击系统资源](ddos-gong-ji-fang-yu-ji-shu/xi-tong-zi-yuan-gong-ji.md)
+* [攻击应用资源](ddos-gong-ji-fang-yu-ji-shu/gong-ji-ying-yong-zi-yuan.md)
+* [DDos治理和缓解](ddos-gong-ji-fang-yu-ji-shu/ddos-zhi-li-he-huan-jie.md)
 
 ## 入侵检测以及WAF技术
 
