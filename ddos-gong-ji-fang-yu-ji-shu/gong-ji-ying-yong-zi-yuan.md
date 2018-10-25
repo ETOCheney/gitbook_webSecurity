@@ -19,7 +19,7 @@ dns查询过程
 7. 权威DNS服务器返回www.baidu.com 
 8. 客户端访问www.baidu.com的真实IP地址
 
-![DNS&#x67E5;&#x8BE2;&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2895%29.png)
+![DNS&#x67E5;&#x8BE2;&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2896%29.png)
 
 DNS Flood 正是利用客户端的一次查询，服务器在未命中时需要多次查询来消耗DNS服务器资源。
 

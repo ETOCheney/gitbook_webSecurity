@@ -102,7 +102,7 @@ Anycast通常具有高度的可靠性，它可以提供自动故障恢复。Anyc
 
 使用Anycast技术能够稀释分布式拒绝服务攻击流量，在Anycast寻址过程中，流量会被导向网络拓扑结构上最近的节点，在这个过程中，攻击者并不能对攻击流量进行操控，因此攻击流量将会被分散并稀释到最近的节点上，每一个节点上的资源消耗都会减少（见图）。
 
-![](../.gitbook/assets/image%20%2889%29.png)
+![](../.gitbook/assets/image%20%2890%29.png)
 
 ### 应用型防御
 
@@ -156,5 +156,5 @@ HTTP启用javescript验证：
 
 在HTTP页面，启用验证码，来判断客户端的真伪
 
-![](../.gitbook/assets/image%20%2886%29.png)
+![](../.gitbook/assets/image%20%2887%29.png)
 

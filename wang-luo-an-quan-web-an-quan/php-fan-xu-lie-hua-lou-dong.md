@@ -104,7 +104,7 @@ __typecho_config=YToyOntzOjc6ImFkYXB0ZXIiO086MTI6IlR5cGVjaG9fRmVlZCI6Mjp7czoxOTo
   
 当存在cookie名为\_\_typecho\_config时，会将该值base64解码后进反序列化，并将反序列化后的对象赋给$config变量。然后将该cookie删除。第三步按config中的adapter和prefix的值建立Typecho\_Db对象。那么看一下Typecho\_Db的构造函数
 
-![](../.gitbook/assets/image%20%2875%29.png)
+![](../.gitbook/assets/image%20%2876%29.png)
 
 此处好像没什么可以利用的地方，但是在第120行
 
@@ -123,7 +123,7 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 第241行调用了dataFormat函数，跟过去看看有没有能利用的地方  
 
 
-![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%2880%29.png)
+![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%2881%29.png)
 
 好像并没有什么能够利用的函数，继续返回toString函数寻找，发现第243行调用了empty\(\)函数，搜索一下看看有没有重写的\_\_isset\(\)可以利用（虽然一般不会有，但是也要尝试一下）
 
@@ -135,7 +135,7 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 
 第290行发现调用了screenName变量，我们知道当对象访问一个不可访问或者没有的变量时会调用\_\_get方法，搜索一下看看
 
-![](../.gitbook/assets/image%20%2893%29.png)
+![](../.gitbook/assets/image%20%2894%29.png)
 
 类太多，不一一举例，我们直接查看Typecho\_Request类，发现该类并没有中creenName变量符合我们使用，查看该类\_\_get方法直接调用了get\(\)方法，跟过去看一下
 
@@ -206,7 +206,7 @@ echo serialize($paylod);
 
 我们再去看一下代码
 
-![](../.gitbook/assets/image%20%2899%29.png)
+![](../.gitbook/assets/image%20%28100%29.png)
 
 我们可以借助category来随便传一个对象，当程序调用时触发致命错误，导致程序直接退出，出现回显。  
 

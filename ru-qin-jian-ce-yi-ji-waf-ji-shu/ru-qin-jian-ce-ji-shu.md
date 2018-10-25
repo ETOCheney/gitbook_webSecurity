@@ -10,7 +10,7 @@ description: 入侵概念
 
 ![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2852%29.png)
 
-![](../.gitbook/assets/image%20%2891%29.png)
+![](../.gitbook/assets/image%20%2892%29.png)
 
 ![](../.gitbook/assets/image%20%2841%29.png)
 
@@ -58,11 +58,11 @@ FIN - 结束标志
 
 ![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2858%29.png)
 
-![](../.gitbook/assets/image%20%2897%29.png)
+![](../.gitbook/assets/image%20%2898%29.png)
 
 ![](../.gitbook/assets/image%20%2861%29.png)
 
-![](../.gitbook/assets/image%20%2888%29.png)
+![](../.gitbook/assets/image%20%2889%29.png)
 
 ![](../.gitbook/assets/image%20%2826%29.png)
 
@@ -170,5 +170,5 @@ UDP Flood是非常难以检测的，由于没有连接过程，无法建立连�
 
 #### 7.内容特征
 
-![](../.gitbook/assets/image%20%2879%29.png)
+![](../.gitbook/assets/image%20%2880%29.png)
 

