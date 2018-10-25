@@ -1,4 +1,4 @@
-# 注入漏洞原理
+# SQL注入原理和注入方法工具
 
 ## 注入
 
@@ -52,7 +52,7 @@
 
 > 攻击者利用Web应用程序对用户输入验证上的疏忽，在输入的数据中包含对某些数据库系统有特殊意义的符号或命令，让攻击者有机会直接对后台数据库系统下达指令，进而实现对后台数据库乃至整个应用系统的入侵。
 
-![&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2890%29.png)
+![&#x6CE8;&#x5165;&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2892%29.png)
 
 ### SQl注入带来的危害
 
@@ -80,7 +80,7 @@ http://www.testweb.com/user.php？id=8
 
 存在数字型注入测试方法
 
-![&#x6570;&#x5B57;&#x578B;&#x6CE8;&#x5165;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;](../.gitbook/assets/image%20%2897%29.png)
+![&#x6570;&#x5B57;&#x578B;&#x6CE8;&#x5165;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;](../.gitbook/assets/image%20%2899%29.png)
 
 #### 字符型注入
 
@@ -89,7 +89,7 @@ http://www.testweb.com/user.php？id=8
 
 存在字符型注入测试方法
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 #### 搜索型注入
 
@@ -172,6 +172,23 @@ GET请求方法，格式： ?text =valuel&cat=value2&num=value3...
 * 浏览器的导航栏中直接修改即可操纵这些参数。
 * HackBar插件
 
+#### POST方法 
+
+POST是一种用于向Web服务器发送信息的HTTP方法。 数据信息无法URL中看到 ，POST可以发送字节大的数据
+
+![](../.gitbook/assets/image%20%2827%29.png)
+
+修改POST包方法 
+
+* 浏览器修改扩展（Hackbar）
+* 代理服务器（Burpsuite）
+
+#### 其它注入点数据
+
+* Cookie
+* Host
+* User-Agent
+
 ## 自动化辅助工具
 
 （1）sQL注入工具：
@@ -199,7 +216,7 @@ BSOL Hacker由Portcullis Labs开发，BSQL Hacker是一种自动化SQL注入框�
 
 The Mole 是一个开源工具，能够绕过一些使用普通过滤规则的IPS/IDS系统。通过Union和Boolean查询技术，Mole能够通过一个脆弱的URL或网站的一串字符就能侦查和实施注入。Mole的命令行工具支持攻击MySQL、SQL Server、Postgres和Oracle数据库。
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2837%29.png)
 
 Pangolin      与web安全漏洞扫描器JSky工具出自同一家公司——NOSEC，Pangolin是一个完整的SQL注入测试工具，有一个用户友好的GUI，能够攻击几乎市场上所有的数据库。 Pangolin通常被白帽社区用作渗透测试工具。
 
@@ -211,5 +228,5 @@ Havij Havij是在全球黑帽中非常流行的一个工具，由伊朗开发者
 
 Safe3 SQL Injector是简单易用的自动化注入工具，可以自动侦测SQL注入漏洞并进行攻击，直至最后接管数据库。Safe3 SQL 还能自动识别数据库类型，并选择最佳的SQL注入方法。
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 

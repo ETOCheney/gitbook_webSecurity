@@ -220,11 +220,11 @@ select\*from table limit m，n其中m是指记录开始的index，从0开始，�
 
 联合查询可以将两次查询的结果拼接到一个表中例如：
 
-![](../.gitbook/assets/image%20%2882%29.png)
+![](../.gitbook/assets/image%20%2884%29.png)
 
 union会自动去除重复的值，想要全部显示则需要使用union all
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2882%29.png)
 
 #### 利用union猜测列数
 
@@ -274,15 +274,27 @@ select * from information_schema.tables where table_schema='mysql';
 
 1oad\_file（）用在MySQL中可以在UNOIN中充当一个字段，读取web服务器的文件
 
-![load\_file\(\)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;](../.gitbook/assets/image%20%2864%29.png)
+![load\_file\(\)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;](../.gitbook/assets/image%20%2866%29.png)
 
-### 多列数据拼接为一个字符串 group\_concat\(\)
+#### 多列数据拼接为一个字符串 group\_concat\(\)
 
 ```sql
 select 1 union select group_concat(TABLE_NAME) from information_schema.tables where table_schema='mysql';
 ```
 
 ![](../.gitbook/assets/image%20%285%29.png)
+
+### 堆叠查询
+
+> 堆叠查询（stacked query）指的是在单个数据库连接中执行多个查询序列
+
+ 在SQL中，分号（；）是用来表示一条sql语句的结束。结束一个SQL语句后继续构造下一条语句，如果可以执行，则造成了堆叠注入。 堆叠注入对比联合注入的区别就在于union或者union all执行的语句类型是有限的，而堆叠注入可以执行的是任意的语句。例如服务器端生成的SQL语句为：（因未对输入的参数进行过滤）
+
+```sql
+Select * from products where productid=1;DELETE FROM products 1;DELETE FROM products;
+```
+
+当执行查询后，第一条显示查询信息，第二条则将整个表进行删除。
 
 ## 挖掘SQL注入
 
