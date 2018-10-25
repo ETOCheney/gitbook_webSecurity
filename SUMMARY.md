@@ -5,6 +5,7 @@
 ## SQL注入
 
 * [数据库基础补漏](sql-zhu-ru/shu-ju-ku-ji-chu-bu-lou.md)
+* [注入漏洞原理](sql-zhu-ru/zhu-ru-lou-dong-yuan-li.md)
 
 ## web框架漏洞
 

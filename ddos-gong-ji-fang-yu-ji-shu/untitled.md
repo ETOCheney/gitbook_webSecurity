@@ -120,7 +120,7 @@ Spamhaus是一个反对垃圾邮件的组织。从2013年3月18日起，Spamhaus
 
 ### 流量攻击趋势
 
-![&#x6D41;&#x91CF;&#x653B;&#x51FB;&#x8D8B;&#x52BF;&#x56FE;](../.gitbook/assets/image%20%287%29.png)
+![&#x6D41;&#x91CF;&#x653B;&#x51FB;&#x8D8B;&#x52BF;&#x56FE;](../.gitbook/assets/image%20%2810%29.png)
 
 
 

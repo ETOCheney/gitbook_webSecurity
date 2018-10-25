@@ -6,17 +6,17 @@ description: 入侵概念
 
 ## 入侵的概念
 
-![&#x5165;&#x4FB5;&#x7684;&#x5F71;&#x54CD;](../.gitbook/assets/image%20%2845%29.png)
+![&#x5165;&#x4FB5;&#x7684;&#x5F71;&#x54CD;](../.gitbook/assets/image%20%2850%29.png)
 
-![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2852%29.png)
+![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2858%29.png)
 
-![](../.gitbook/assets/image%20%2892%29.png)
+![](../.gitbook/assets/image%20%28102%29.png)
 
-![](../.gitbook/assets/image%20%2841%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
 网络入侵与网络攻击
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ## 入侵行为的特征
 
@@ -56,17 +56,17 @@ FIN - 结束标志
 详解：[http://blog.51cto.com/jim123/1853000](http://blog.51cto.com/jim123/1853000)  
 
 
-![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2858%29.png)
+![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2865%29.png)
 
-![](../.gitbook/assets/image%20%2898%29.png)
+![](../.gitbook/assets/image%20%28108%29.png)
 
-![](../.gitbook/assets/image%20%2861%29.png)
+![](../.gitbook/assets/image%20%2868%29.png)
 
-![](../.gitbook/assets/image%20%2889%29.png)
+![](../.gitbook/assets/image%20%2899%29.png)
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
-![](../.gitbook/assets/image%20%2853%29.png)
+![](../.gitbook/assets/image%20%2859%29.png)
 
 #### 2.针对IP缺陷的攻击
 
@@ -76,7 +76,7 @@ IP报文分片过程：
 
 假如一个4800字节的IP包（IP首部长度为20B），要通过MTU为1500的网络，则需要进行分片。IP片段中偏移字段的值如下图
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 > 片偏移就是某片在原分组的相对位置，以8个字节为偏移单位。所以偏移字段值等于偏移值/8
 
@@ -84,7 +84,7 @@ IP报文分片过程：
 
 特征：属于某个原始IP数据包的分片没有全部发送，则需要判断各分片之间是否满足关系，最后一个分片是否发送。
 
-![](../.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 （2）泪滴攻击
 
@@ -92,7 +92,7 @@ IP报文分片过程：
 
 特征：各分片之间偏移值、数据包长度、首部长度之间不满足紧密衔接关系。
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 （3）带源路由选项的IP报文
 
@@ -148,7 +148,7 @@ ARP的作用是找出指定的ip地址对应的MAC地址。
 
 由请求主机以本网广播方式，发出ARP请求。目标主机以单播方式，向申请主机回应ARP应答信息，完成IP-&gt;MAC地址的过程。
 
-![](../.gitbook/assets/image%20%2868%29.png)
+![](../.gitbook/assets/image%20%2875%29.png)
 
 #### 5.针对UDP攻击
 
@@ -170,5 +170,5 @@ UDP Flood是非常难以检测的，由于没有连接过程，无法建立连�
 
 #### 7.内容特征
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2888%29.png)
 

@@ -220,7 +220,93 @@ select\*from table limit m，n其中m是指记录开始的index，从0开始，�
 
 联合查询可以将两次查询的结果拼接到一个表中例如：
 
-![](../.gitbook/assets/image%20%2874%29.png)
+![](../.gitbook/assets/image%20%2882%29.png)
 
-因为查询语句构造问题，可直接否认掉之前的查询，执行一个全新的语句来执行，需要注意的是查询的列应当和之前对应。
+union会自动去除重复的值，想要全部显示则需要使用union all
+
+![](../.gitbook/assets/image%20%2880%29.png)
+
+#### 利用union猜测列数
+
+因为查询语句构造问题，可直接否认掉之前的查询，执行一个全新的语句来执行，需要注意的是查询的列应当和之前对应。例如：
+
+```text
+select 1,2,3 where 1=2 union select 4,5,6
+```
+
+还可以利用union来猜测列数，用and union select 1，2，3，4，5，6...；来猜解列数（字段数），只有列数相等了，才能返回True
+
+#### 结合exists（）函数猜解表名 
+
+```text
+and exists(selec…)
+```
+
+exists（）函数用于检查子查询是否至少会返回一行数据。此时不返回任何数据，而是返回True或者False，用来判断是否存在表。
+
+#### 结合系统函数暴数据库信息
+
+在MySQL中，把information\_schema 看作是一个数据库，确切说是信息数据库。 其中保存着关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等。
+
+我们可以借助information\_Schema数据库来浏览数据库信息，例如Mysql
+
+查看所有数据库：
+
+```sql
+select * from information_schema.schemata
+```
+
+查看某个数据库中所有的表（查看mysql数据库中所有的表）
+
+```sql
+select * from information_schema.tables where table_schema='mysql';
+```
+
+#### 结合load\_file\(\)读取服务器文件的内容
+
+
+
+函数LOAD\_FILE（file\_name）：读取文件并将文件内容按照字符串的格式返回。 前提条件：
+
+* 文件的位置必须在服务器上，你必须为文件制定路径全名，而且你还必须拥有FILE特许权。 
+* 文件必须可读取，文件容量必须小于max\_allowed\_packet字节。
+*  若文件不存在，或因不满足上述条件而不能被读取，则函数返回值为NULL。 
+
+1oad\_file（）用在MySQL中可以在UNOIN中充当一个字段，读取web服务器的文件
+
+![load\_file\(\)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;](../.gitbook/assets/image%20%2864%29.png)
+
+### 多列数据拼接为一个字符串 group\_concat\(\)
+
+```sql
+select 1 union select group_concat(TABLE_NAME) from information_schema.tables where table_schema='mysql';
+```
+
+![](../.gitbook/assets/image%20%285%29.png)
+
+## 挖掘SQL注入
+
+### 测试注入点
+
+| 测试字符串 | 变种 | 预期结果 |
+| :--- | :--- | :--- |
+| ' |  | 触发错误。如果成功，数据库将返回一个错误 |
+| 1' or '1'='1 | 1'\) or \('1'='1 | 如果成功，将返回表中所有的行 |
+| value' or '1'='2 | value'\) or \('1'='2 | 空条件。如果成功，将返回与原来的值相同的结果 |
+| 1' and '1' = '2 | 1'\) and \('1' = '2 | 永假条件。如果成功，将不返回表中任何行 |
+| 1' or 'ab'='a'+'b | 1'\) or \('ab'='a'+'b | SQL Server字符串连接。如果成功，将返回与永真条件相同的信息 |
+| 1' or 'ab'='a' 'b | 1'\) or\( 'ab'='a' 'b | MySQL字符串连接。如果成功，将返回与永真条件相同的信息 |
+| 1' or 'ab'='a'\|\|'b | 1'\) or \('ab'='a'\|\|'b | Oracle字符串连接。如果成功，将返回与永真条件相同的信息 |
+
+### 数据库注释语句
+
+| 数据库 | 注释 | 描述 |
+| :--- | :--- | :--- |
+| Sal server和 Oracle | -- \(double bash\) | 用于单行注释 |
+|  | /\* \*/ | 多行注释 |
+| Mysql | -- \(double bash\) | 用于单行注释。要求第二个dash后面跟一个空格或控制字符（如制表符、换行符等） |
+|  | \# | 单行注释，但是在url中，\#号作为锚点链接，所以使用前需要URL编码 |
+|  | /\*  \*/ | 用于多行注释 |
+
+
 
