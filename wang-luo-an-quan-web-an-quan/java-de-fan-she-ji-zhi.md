@@ -55,6 +55,20 @@ public class sss {
 包名HelloWorld	类名HelloWorld.HelloWorld
 ```
 
+#### 2 调用某个对象的getClass\(\)方法
+
+```java
+HelloWorld b = new HelloWorld();
+Class<?> bClass = b.getClass();
+System.out.println("包名"+bClass.getPackage().getName()+"\t类名"+bClass.getName());
+```
+
+执行结果
+
+```bash
+包名HelloWorld	类名HelloWorld.HelloWorld
+```
+
 #### 3 直接获取某一个对象的Class
 
 ```java
@@ -67,4 +81,46 @@ System.out.println("包名"+c.getPackage().getName()+"\t类名"+c.getName());
 ```text
 包名HelloWorld	类名HelloWorld.HelloWorld
 ```
+
+### 判断是否为某个类的实例
+
+> 一般地，我们可以用instanceof关键字来判断是否为某个类的实例。同时，我们也可以借助反射中Class对象的isInterface\(\)方法来判断。他是一个native方法。
+
+#### 1 使用instanceof关键字
+
+```java
+HelloWorld b = new HelloWorld();
+		
+if (b instanceof HelloWorld) {
+	System.out.println("b instanceof HelloWorld");
+}
+```
+
+输出结果：
+
+```text
+b instanceof HelloWorld
+```
+
+#### 2 使用isInterface\(\)方法
+
+```java
+		HelloWorld a = new HelloWorld(); 
+		HelloWorld b = new HelloWorld();
+		Class<?> bClass = b.getClass();
+		
+		boolean isH1 = bClass.isInstance(a);
+		boolean isH2 = bClass.isInstance(b);
+		System.out.println(isH1+"\t"+isH2);
+```
+
+输出结果:
+
+```text
+true	true
+```
+
+### 创建实例
+
+
 

@@ -13,8 +13,8 @@
 
 * [反序列化漏洞](wang-luo-an-quan-web-an-quan/web-an-quan.md)
 * [PHP反序列化漏洞](wang-luo-an-quan-web-an-quan/php-fan-xu-lie-hua-lou-dong.md)
-* [JAVA反序列化漏洞](wang-luo-an-quan-web-an-quan/java-fan-xu-lie-hua-lou-dong.md)
 * [JAVA的反射机制](wang-luo-an-quan-web-an-quan/java-de-fan-she-ji-zhi.md)
+* [JAVA反序列化漏洞](wang-luo-an-quan-web-an-quan/java-fan-xu-lie-hua-lou-dong.md)
 
 ## DDos攻击防御技术
 
