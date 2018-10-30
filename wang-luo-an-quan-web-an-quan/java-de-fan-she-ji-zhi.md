@@ -122,5 +122,21 @@ true	true
 
 ### 创建实例
 
+使用Class对象的newInstance\(\)方法来创建Class对象对应类的实例
 
+```java
+Class<?> aClass = HelloWorld.class;
+Object aObject = aClass.newInstance();
+		
+((HelloWorld)aObject).show();
+```
+
+先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance\(\)方法来创建实例。这种方法可以用指定的构造器构造类的实例。
+
+```java
+Class<?> bClass = String.class;
+Constructor<?> constructor=bClass.getConstructor(String.class);
+Object object = constructor.newInstance("2333");
+System.out.println(object);
+```
 
