@@ -24,7 +24,7 @@ description: 介绍几款常用的自动化漏洞扫描工具
 
 打开此链接[https://www.tenable.com/products/nessus/activation-code](https://www.tenable.com/products/nessus/activation-code)，然后选择try for free
 
-![](../.gitbook/assets/image%20%28126%29.png)
+![](../.gitbook/assets/image%20%28132%29.png)
 
 填写信息，然后会给你一个使用7天的激活码
 
@@ -37,6 +37,32 @@ description: 介绍几款常用的自动化漏洞扫描工具
 下载对应的版本，由于我是kali 2018 64位，所以我下载如图版本
 
 ![](../.gitbook/assets/image%20%2819%29.png)
+
+将安装文件复制到虚拟机，执行dpkg -i 下载的文件
+
+```text
+dpkg -i Nessus-8.0.1-debian6_amd64.deb
+```
+
+启动Nessus 服务
+
+```text
+/etc/init.d/nessusd start
+```
+
+查看状态
+
+```text
+/etc/init.d/nessusd status
+```
+
+浏览器访问 https://虚拟机ip:8834，设置用户名密码
+
+![](../.gitbook/assets/image%20%2861%29.png)
+
+填写激活码
+
+![](../.gitbook/assets/image%20%2828%29.png)
 
 
 
