@@ -16,7 +16,7 @@ description: 了解攻击带宽的原理以及方式
 
 ### 直接攻击示意图
 
-![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%28112%29.png)
+![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%28134%29.png)
 
 ### Ping Flood
 
@@ -32,7 +32,7 @@ Ping Flood 也称为ICMP Flood，是一种常见的拒绝服务攻击（Dos）�
 
 ### 反射攻击示意图
 
-![&#x53CD;&#x5C04;&#x578B;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2842%29.png)
+![&#x53CD;&#x5C04;&#x578B;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2852%29.png)
 
 ### 反射攻击——SNMP
 
@@ -68,7 +68,7 @@ DNS在互联网上有多种类型查询，分别是：
 
 #### windows下查询方式：
 
-![](../.gitbook/assets/image%20%28100%29.png)
+![](../.gitbook/assets/image%20%28120%29.png)
 
 #### linux下查询方式
 
@@ -76,7 +76,7 @@ DNS在互联网上有多种类型查询，分别是：
 dig any baidu.com
 ```
 
-![](../.gitbook/assets/image%20%2879%29.png)
+![](../.gitbook/assets/image%20%2893%29.png)
 
 ### 反射攻击——NTP
 

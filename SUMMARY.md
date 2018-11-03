@@ -31,6 +31,13 @@
 * [入侵检测技术](ru-qin-jian-ce-yi-ji-waf-ji-shu/untitled.md)
 * [网络安全监控系统以及Snort使用](ru-qin-jian-ce-yi-ji-waf-ji-shu/untitled-1.md)
 
+## 渗透测试常用工具
+
+* [kali渗透平台](shen-tou-ce-shi-chang-yong-gong-ju/kali-shen-tou-ping-tai.md)
+* [kali的安装](shen-tou-ce-shi-chang-yong-gong-ju/kali-de-an-zhuang.md)
+* [漏洞扫描工具](shen-tou-ce-shi-chang-yong-gong-ju/lou-dong-sao-miao-gong-ju.md)
+* [暴力破解工具](shen-tou-ce-shi-chang-yong-gong-ju/bao-li-po-jie-gong-ju.md)
+
 ## 常见CMS漏洞记录
 
 * [DedeCMS5.7漏洞利用与分析](chang-jian-cms-lou-dong-ji-lu/dedecms5.7-lou-dong-li-yong-yu-fen-xi.md)

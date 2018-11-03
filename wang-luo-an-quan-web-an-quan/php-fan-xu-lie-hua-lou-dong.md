@@ -99,12 +99,12 @@ __typecho_config=YToyOntzOjc6ImFkYXB0ZXIiO086MTI6IlR5cGVjaG9fRmVlZCI6Mjp7czoxOTo
 1.漏洞的入口位置在install.php的第232行  
 
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
   
 当存在cookie名为\_\_typecho\_config时，会将该值base64解码后进反序列化，并将反序列化后的对象赋给$config变量。然后将该cookie删除。第三步按config中的adapter和prefix的值建立Typecho\_Db对象。那么看一下Typecho\_Db的构造函数
 
-![](../.gitbook/assets/image%20%2886%29.png)
+![](../.gitbook/assets/image%20%28101%29.png)
 
 此处好像没什么可以利用的地方，但是在第120行
 
@@ -114,42 +114,42 @@ $adapterName = 'Typecho_Db_Adapter_' . $adapterName;
 
 会将$adapterName变量做一次字符串链接，如果该变量是一个对象则会默认调用\_\_toString方法，全局搜索\_\_toString方法，看看是否存在可以利用的类。
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](../.gitbook/assets/image%20%2860%29.png)
 
 可以看到这三个类重写了toString函数，跟进去第一个看看Feed.php
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 第241行调用了dataFormat函数，跟过去看看有没有能利用的地方  
 
 
-![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%2891%29.png)
+![dataFormat&#x51FD;&#x6570;](../.gitbook/assets/image%20%28108%29.png)
 
 好像并没有什么能够利用的函数，继续返回toString函数寻找，发现第243行调用了empty\(\)函数，搜索一下看看有没有重写的\_\_isset\(\)可以利用（虽然一般不会有，但是也要尝试一下）
 
-![](../.gitbook/assets/image%20%2874%29.png)
+![](../.gitbook/assets/image%20%2888%29.png)
 
 果然没有能用的到的，继续toString方法往下寻找
 
-![](../.gitbook/assets/image%20%2845%29.png)
+![](../.gitbook/assets/image%20%2855%29.png)
 
 第290行发现调用了screenName变量，我们知道当对象访问一个不可访问或者没有的变量时会调用\_\_get方法，搜索一下看看
 
-![](../.gitbook/assets/image%20%28106%29.png)
+![](../.gitbook/assets/image%20%28127%29.png)
 
 类太多，不一一举例，我们直接查看Typecho\_Request类，发现该类并没有中creenName变量符合我们使用，查看该类\_\_get方法直接调用了get\(\)方法，跟过去看一下
 
-![](../.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2894%29.png)
 
 而且$value=\_params\[$key\]可以直接构造一个值传过去，然后这个值会传到\_applyFilter函数
 
-![](../.gitbook/assets/image%20%2857%29.png)
+![](../.gitbook/assets/image%20%2870%29.png)
 
 函数中会调用call\_user\_func\(\)函数可以被利用，来执行任意函数，然后再借助assert函数来执行任意php语句
 
-![](../.gitbook/assets/image%20%2872%29.png)
+![](../.gitbook/assets/image%20%2886%29.png)
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
 ### 构造poc
 
@@ -189,7 +189,7 @@ echo '<br><br><br><br>';
 echo serialize($paylod);
 ```
 
-![](../.gitbook/assets/image%20%2858%29.png)
+![](../.gitbook/assets/image%20%2871%29.png)
 
 互发生报错（但是代码已经执行），是因为typecho开启了ob\_start
 
@@ -197,7 +197,7 @@ echo serialize($paylod);
 
  这里开启了ob\_start的话会让脚本没有回显，同时我们的exp会触发自有的exception
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](../.gitbook/assets/image%20%2847%29.png)
 
 解决方法有两个
 
@@ -206,12 +206,12 @@ echo serialize($paylod);
 
 我们再去看一下代码
 
-![](../.gitbook/assets/image%20%28113%29.png)
+![](../.gitbook/assets/image%20%28135%29.png)
 
 我们可以借助category来随便传一个对象，当程序调用时触发致命错误，导致程序直接退出，出现回显。  
 
 
-![](../.gitbook/assets/image%20%2862%29.png)
+![](../.gitbook/assets/image%20%2875%29.png)
 
 构造POC上传一句话木马。POC：
 
@@ -270,7 +270,7 @@ a:2:{s:7:"adapter";O:12:"Typecho_Feed":2:{s:19:"Typecho_Feed_type";s:7:"RSS 2.0"
 
 菜刀链接：
 
-![](../.gitbook/assets/image%20%2876%29.png)
+![](../.gitbook/assets/image%20%2890%29.png)
 
 
 

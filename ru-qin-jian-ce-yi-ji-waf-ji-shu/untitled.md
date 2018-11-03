@@ -20,13 +20,13 @@ description: 入侵检测技术介绍
 
 ## 入侵检测模型
 
-![](../.gitbook/assets/image%20%2846%29.png)
+![](../.gitbook/assets/image%20%2856%29.png)
 
 ## 入侵检测系统
 
 ### CIDF框架
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 ### IDS分类
 
@@ -44,11 +44,11 @@ HIDS（基于主机的入侵检测系统）和NIDS（基于网络的入侵检测
 
 ### NIDS的结构与工作流程
 
-![](../.gitbook/assets/image%20%28103%29.png)
+![](../.gitbook/assets/image%20%28123%29.png)
 
 ### HIDS的结构与工作流程
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2832%29.png)
 
 ### IDS的工作模式
 
@@ -68,9 +68,9 @@ IDS能够根据管理员配置的规则，对网络数据进行分析，并对�
 
 （HIDS）
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
 （NIDS）
 
-![](../.gitbook/assets/image%20%2859%29.png)
+![](../.gitbook/assets/image%20%2872%29.png)
 

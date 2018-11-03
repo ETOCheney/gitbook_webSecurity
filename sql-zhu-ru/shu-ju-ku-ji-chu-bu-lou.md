@@ -220,11 +220,11 @@ select\*from table limit m，n其中m是指记录开始的index，从0开始，�
 
 联合查询可以将两次查询的结果拼接到一个表中例如：
 
-![](../.gitbook/assets/image%20%2884%29.png)
+![](../.gitbook/assets/image%20%2899%29.png)
 
 union会自动去除重复的值，想要全部显示则需要使用union all
 
-![](../.gitbook/assets/image%20%2882%29.png)
+![](../.gitbook/assets/image%20%2897%29.png)
 
 #### 利用union猜测列数
 
@@ -274,7 +274,7 @@ select * from information_schema.tables where table_schema='mysql';
 
 1oad\_file（）用在MySQL中可以在UNOIN中充当一个字段，读取web服务器的文件
 
-![load\_file\(\)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;](../.gitbook/assets/image%20%2866%29.png)
+![load\_file\(\)&#x8BFB;&#x53D6;&#x6587;&#x4EF6;](../.gitbook/assets/image%20%2879%29.png)
 
 #### 多列数据拼接为一个字符串 group\_concat\(\)
 
@@ -282,7 +282,7 @@ select * from information_schema.tables where table_schema='mysql';
 select 1 union select group_concat(TABLE_NAME) from information_schema.tables where table_schema='mysql';
 ```
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 ### 堆叠查询
 
