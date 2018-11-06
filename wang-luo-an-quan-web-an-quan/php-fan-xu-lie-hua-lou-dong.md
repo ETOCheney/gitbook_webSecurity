@@ -206,7 +206,7 @@ echo serialize($paylod);
 
 我们再去看一下代码
 
-![](../.gitbook/assets/image%20%28141%29.png)
+![](../.gitbook/assets/image%20%28142%29.png)
 
 我们可以借助category来随便传一个对象，当程序调用时触发致命错误，导致程序直接退出，出现回显。  
 

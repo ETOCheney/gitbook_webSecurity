@@ -62,7 +62,7 @@ description: 演示在虚拟机安装kali的过程，物理机基本一样
 
 开始安装系统
 
-![](../.gitbook/assets/image%20%28143%29.png)
+![](../.gitbook/assets/image%20%28144%29.png)
 
 安装完后会提示是否使用网络镜像，是否都可以，然后继续安装
 
