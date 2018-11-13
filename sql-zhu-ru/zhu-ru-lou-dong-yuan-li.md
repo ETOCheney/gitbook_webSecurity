@@ -80,7 +80,7 @@ http://www.testweb.com/user.php？id=8
 
 存在数字型注入测试方法
 
-![&#x6570;&#x5B57;&#x578B;&#x6CE8;&#x5165;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;](../.gitbook/assets/image%20%28125%29.png)
+![&#x6570;&#x5B57;&#x578B;&#x6CE8;&#x5165;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;](../.gitbook/assets/image%20%28126%29.png)
 
 #### 字符型注入
 

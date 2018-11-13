@@ -10,7 +10,7 @@ description: 入侵概念
 
 ![&#x5165;&#x4FB5;&#x7684;&#x6982;&#x5FF5;](../.gitbook/assets/image%20%2877%29.png)
 
-![](../.gitbook/assets/image%20%28130%29.png)
+![](../.gitbook/assets/image%20%28131%29.png)
 
 ![](../.gitbook/assets/image%20%2860%29.png)
 
@@ -58,11 +58,11 @@ FIN - 结束标志
 
 ![&#x9488;&#x5BF9;TCP&#x6807;&#x8BB0;&#x7684;&#x653B;&#x51FB;](../.gitbook/assets/image%20%2884%29.png)
 
-![](../.gitbook/assets/image%20%28139%29.png)
+![](../.gitbook/assets/image%20%28140%29.png)
 
 ![](../.gitbook/assets/image%20%2888%29.png)
 
-![](../.gitbook/assets/image%20%28127%29.png)
+![](../.gitbook/assets/image%20%28128%29.png)
 
 ![](../.gitbook/assets/image%20%2839%29.png)
 

@@ -24,7 +24,7 @@ description: 介绍几款常用的自动化漏洞扫描工具
 
 打开此链接[https://www.tenable.com/products/nessus/activation-code](https://www.tenable.com/products/nessus/activation-code)，然后选择try for free
 
-![](../.gitbook/assets/image%20%28132%29.png)
+![](../.gitbook/assets/image%20%28133%29.png)
 
 填写信息，然后会给你一个使用7天的激活码
 

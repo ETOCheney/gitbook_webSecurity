@@ -16,7 +16,7 @@ description: 了解攻击带宽的原理以及方式
 
 ### 直接攻击示意图
 
-![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%28140%29.png)
+![&#x76F4;&#x63A5;&#x653B;&#x51FB;](../.gitbook/assets/image%20%28141%29.png)
 
 ### Ping Flood
 
@@ -68,7 +68,7 @@ DNS在互联网上有多种类型查询，分别是：
 
 #### windows下查询方式：
 
-![](../.gitbook/assets/image%20%28126%29.png)
+![](../.gitbook/assets/image%20%28127%29.png)
 
 #### linux下查询方式
 
