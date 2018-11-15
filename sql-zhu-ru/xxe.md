@@ -15,7 +15,7 @@ description: >-
 
 XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素。
 
-![](../.gitbook/assets/image%20%28119%29.png)
+![](../.gitbook/assets/image%20%28132%29.png)
 
 通过&来调取变量
 

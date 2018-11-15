@@ -9,6 +9,7 @@
 * [SQL注入原理和注入方法工具](sql-zhu-ru/zhu-ru-lou-dong-yuan-li.md)
 * [SQL盲注](sql-zhu-ru/sql-mang-zhu.md)
 * [sqli-labs闯关题目](sql-zhu-ru/sqlilabs-chuang-guan-ti-mu.md)
+* [MSSQL利用（注入后）](sql-zhu-ru/mssql-li-yong-zhu-ru-hou.md)
 * [XXE](sql-zhu-ru/xxe.md)
 
 ## web框架漏洞

@@ -12,11 +12,11 @@ description: Kali是一个高级渗透测试和安全审计Linux发行版，集�
 >
 > Kali Linux预装了许多渗透测试软件，包括nmap（端口扫描器）、Wireshark（数据包分析器）、John the Ripper（密码破解器），以及Aircrack-ng（应用于对无线局域网进行渗透测试的软件）。 Metasploit的Metasploit Framework支持Kali Linux，Metasploit一套针对远程主机进行开发和执行Exploit代码的工具。
 
-![kali&#x7684;&#x4E3B;&#x754C;&#x9762;](../.gitbook/assets/image%20%28139%29.png)
+![kali&#x7684;&#x4E3B;&#x754C;&#x9762;](../.gitbook/assets/image%20%28154%29.png)
 
 ## kali Linux 常用工具TOP10
 
-![TOP10](../.gitbook/assets/image%20%28125%29.png)
+![TOP10](../.gitbook/assets/image%20%28138%29.png)
 
 ## 工具分类
 
