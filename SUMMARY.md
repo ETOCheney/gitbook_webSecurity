@@ -12,6 +12,12 @@
 * [MSSQL利用（注入后）](sql-zhu-ru/mssql-li-yong-zhu-ru-hou.md)
 * [XXE](sql-zhu-ru/xxe.md)
 
+## 逻辑漏洞
+
+* [逻辑漏洞概述](luo-ji-lou-dong/luo-ji-lou-dong-gai-shu.md)
+* [验证机制问题](luo-ji-lou-dong/yan-zheng-ji-zhi-wen-ti.md)
+* [会话管理](luo-ji-lou-dong/hui-hua-guan-li.md)
+
 ## web框架漏洞
 
 * [反序列化漏洞](wang-luo-an-quan-web-an-quan/web-an-quan.md)
