@@ -17,6 +17,7 @@
 * [逻辑漏洞概述](luo-ji-lou-dong/luo-ji-lou-dong-gai-shu.md)
 * [验证机制问题](luo-ji-lou-dong/yan-zheng-ji-zhi-wen-ti.md)
 * [会话管理](luo-ji-lou-dong/hui-hua-guan-li.md)
+* [权限控制问题](luo-ji-lou-dong/quan-xian-kong-zhi-wen-ti.md)
 
 ## web框架漏洞
 
