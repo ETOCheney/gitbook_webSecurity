@@ -47,6 +47,7 @@
 * [kali的安装](shen-tou-ce-shi-chang-yong-gong-ju/kali-de-an-zhuang.md)
 * [漏洞扫描工具](shen-tou-ce-shi-chang-yong-gong-ju/lou-dong-sao-miao-gong-ju.md)
 * [暴力破解工具](shen-tou-ce-shi-chang-yong-gong-ju/bao-li-po-jie-gong-ju.md)
+* [Metasploit](shen-tou-ce-shi-chang-yong-gong-ju/metasploit.md)
 
 ## 常见CMS漏洞记录
 
