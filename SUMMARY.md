@@ -69,4 +69,5 @@
 * [域内信息收集](nei-wang-shen-tou/yu-nei-xin-xi-shou-ji.md)
 * [域内横向移动](nei-wang-shen-tou/yu-nei-heng-xiang-yi-dong.md)
 * [内网渗透技巧](nei-wang-shen-tou/nei-wang-shen-tou-ji-qiao.md)
+* [Bypass UAC](nei-wang-shen-tou/bypass-uac.md)
 
