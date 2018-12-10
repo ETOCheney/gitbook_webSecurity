@@ -2,6 +2,7 @@
 
 * [web安全](README.md)
 * [SRC漏洞挖掘分享](src-lou-dong-wa-jue-fen-xiang.md)
+* [内网渗透](nei-wang-shen-tou-1.md)
 
 ## 常见注入
 
@@ -18,7 +19,6 @@
 * [验证机制问题](luo-ji-lou-dong/yan-zheng-ji-zhi-wen-ti.md)
 * [会话管理](luo-ji-lou-dong/hui-hua-guan-li.md)
 * [权限控制问题](luo-ji-lou-dong/quan-xian-kong-zhi-wen-ti.md)
-* [Untitled](luo-ji-lou-dong/untitled.md)
 
 ## web框架漏洞
 
