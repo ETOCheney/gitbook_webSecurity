@@ -72,7 +72,7 @@ pip安装模块：
 
 ![](https://p408.ssl.qhimgs4.com/t01a81d62ba65f13cd6.png)
 
-#### 凭证收集 <a id="-"></a>
+#### 离线凭证收集 <a id="-"></a>
 
 **导出sam数据库中的密码**
 
@@ -105,4 +105,8 @@ saminside
 cain
 
 ![](https://p408.ssl.qhimgs4.com/t012cdaf29e91e807f2.png)
+
+离线提取1sass进程
+
+ Vista及以上的系统可以打开任务管理器，选择显示所有用户的进程，找到1sass进程后右键创建转储文件 procdump.exe procdump.exe-ma lsass.exe lsass.dmp获取到内存转储文件后，就可以使用mimikatz来提取密码。这里需要注意的是运行mimikatz平台架构要与进行转储的系统兼容。命令如下： sekurlsa:：minidump lsass.dmp sekurlsa:：logonpasswords
 
