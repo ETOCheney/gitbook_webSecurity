@@ -124,7 +124,7 @@ public class binTest2 {
 
 通过重写Student2对象的readObject方法，利用反序列化，运行时会弹出计算器
 
-![](../.gitbook/assets/image%20%28157%29.png)
+![](../.gitbook/assets/image%20%28164%29.png)
 
 
 

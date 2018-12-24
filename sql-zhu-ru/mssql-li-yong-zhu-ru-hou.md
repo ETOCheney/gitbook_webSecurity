@@ -16,13 +16,13 @@
 
 **一直下一步，完成后，数据库导航窗口会出现一个连接，双击连接：**
 
-![](../.gitbook/assets/image%20%2870%29.png)
+![](../.gitbook/assets/image%20%2872%29.png)
 
 若是第一次连接，双击会提示下载驱动文件，若不成功，需多次反复尝试
 
 **新建SQL编辑器即可执行SQL语句：**
 
-![](../.gitbook/assets/image%20%2899%29.png)
+![](../.gitbook/assets/image%20%28104%29.png)
 
 查询SQL Server版本SQL语句如下：
 
@@ -32,7 +32,7 @@ select @@version;
 
 执行结果：
 
-![](../.gitbook/assets/image%20%2867%29.png)
+![](../.gitbook/assets/image%20%2869%29.png)
 
 **连接MSSQL 2008**
 
@@ -42,7 +42,7 @@ select @@version;
 
 **新建查询：**
 
-![&#x53EF;&#x80FD;&#x4F1A;&#x4E0B;&#x8F7D;&#x9A71;&#x52A8;](../.gitbook/assets/image%20%2884%29.png)
+![&#x53EF;&#x80FD;&#x4F1A;&#x4E0B;&#x8F7D;&#x9A71;&#x52A8;](../.gitbook/assets/image%20%2888%29.png)
 
 **执行SQL语句，查询所有的数据库名称：**
 
@@ -54,7 +54,7 @@ SELECT Name FROM Master..SysDatabases ORDER BY Name;
 
 执行结果：
 
-![](../.gitbook/assets/image%20%28145%29.png)
+![](../.gitbook/assets/image%20%28152%29.png)
 
 #### MSSQL利用方式
 
@@ -70,11 +70,11 @@ exec master..xp_cmdshell 'whoami';
 
 SQL Server 2000结果：
 
-![](../.gitbook/assets/image%20%28150%29.png)
+![](../.gitbook/assets/image%20%28157%29.png)
 
 SQL Server 2008结果：
 
-![](../.gitbook/assets/image%20%28104%29.png)
+![](../.gitbook/assets/image%20%28109%29.png)
 
 xp\_cmdshell存储过程在 SQL Server 2005以后默认关闭，需要手动开启
 
@@ -99,7 +99,7 @@ RECONFIGURE;                                        //配置生效
 exec sp_configure
 ```
 
-![](../.gitbook/assets/image%20%28103%29.png)
+![](../.gitbook/assets/image%20%28108%29.png)
 
 再次执行系统命令：
 
@@ -107,13 +107,13 @@ exec sp_configure
 exec master..xp_cmdshell 'whoami';
 ```
 
-![](../.gitbook/assets/image%20%2891%29.png)
+![](../.gitbook/assets/image%20%2895%29.png)
 
 ```text
 exec master..xp_cmdshell 'ipconfig';
 ```
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](../.gitbook/assets/image%20%2841%29.png)
 
 关闭xp\_cmdshell过程如下：
 
@@ -140,7 +140,7 @@ exec master..sp_dropextendedproc xp_cmdshell;
 
 此时若使用xp\_cmdshell，会提示“未能找到存储过程”,如下：
 
-![](../.gitbook/assets/image%20%2863%29.png)
+![](../.gitbook/assets/image%20%2865%29.png)
 
 需使用下面命令可以恢复：
 
@@ -150,7 +150,7 @@ exec master.dbo.sp_addextendedproc xp_cmdshell,@dllname ='xplog70.dll'declare @o
 
 恢复xp\_cmdshell需要xplog70.dll，但有的管理员会将xplog70.dll一并删除：
 
-![](../.gitbook/assets/image%20%2881%29.png)
+![](../.gitbook/assets/image%20%2885%29.png)
 
 如果有上传权限，可以上传xplog70.dll，并执行：
 

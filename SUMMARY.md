@@ -12,6 +12,7 @@
 * [sqli-labs闯关题目](sql-zhu-ru/sqlilabs-chuang-guan-ti-mu.md)
 * [MSSQL利用（注入后）](sql-zhu-ru/mssql-li-yong-zhu-ru-hou.md)
 * [XXE](sql-zhu-ru/xxe.md)
+* [SQLserver手注过程](sql-zhu-ru/sqlserver-shou-zhu-guo-cheng.md)
 
 ## 逻辑漏洞
 

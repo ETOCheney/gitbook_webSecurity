@@ -25,12 +25,12 @@ description: DDos攻击通常以流量来形容DDos攻击规模。但这并非DD
 
 TCP的3次握手，通信的双方最少得经过3次成功的信息交换才能进入连接全开状态（Full-Open），也就是我常说的建立TCP连接的3次握手（TCP three-way handshake）。
 
-![TCP&#x7684;&#x4E09;&#x6B21;&#x63E1;&#x624B;](../.gitbook/assets/image%20%2889%29.png)
+![TCP&#x7684;&#x4E09;&#x6B21;&#x63E1;&#x624B;](../.gitbook/assets/image%20%2893%29.png)
 
 SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪造源IP发送大量的TCP  SYN报文，使服务器打开大量的半开连接，占满服务器的连接表，从而影响正常用户与服务器建立会话，造成拒绝服务。  
 
 
-![SYN FLOOD ATTACT](../.gitbook/assets/image%20%28121%29.png)
+![SYN FLOOD ATTACT](../.gitbook/assets/image%20%28126%29.png)
 
 #### ACK Flood 攻击
 
@@ -38,9 +38,9 @@ SYN FLOOD攻击就是攻击者利用TCP三次握手的漏洞，受控主机伪�
 
 在服务器查询过程中会消耗一定的CUP计算资源。如果瞬间收到大量的SYN+ACK数据包，将会消耗服务器的大量cpu资源，导致正常的连接无法建立或增加延迟，甚至造成服务器瘫痪、死机。
 
-![ACK Flood &#x53D1;&#x9001;&#x5927;&#x91CF;&#x7684;SYN+ACK](../.gitbook/assets/image%20%2826%29.png)
+![ACK Flood &#x53D1;&#x9001;&#x5927;&#x91CF;&#x7684;SYN+ACK](../.gitbook/assets/image%20%2827%29.png)
 
-![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%28129%29.png)
+![&#x4F7F;&#x7528;SYNFLOOD&#x5EFA;&#x7ACB;&#x7684;&#x5927;&#x91CF;&#x534A;&#x5F00;&#x8FDE;&#x63A5;&#xFF0C;&#x5BFC;&#x81F4;&#x670D;&#x52A1;&#x5668;&#x5FD9;&#x4E0D;&#x8FC7;&#x6765;](../.gitbook/assets/image%20%28135%29.png)
 
 #### Sockstress攻击
 
