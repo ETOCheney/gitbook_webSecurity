@@ -58,7 +58,9 @@
 
 ## 内网渗透
 
+* [win信息收集（V2）](nei-wang-shen-tou/win-xin-xi-shou-ji-v2.md)
 * [Windows下信息收集](nei-wang-shen-tou/windows-xia-xin-xi-shou-ji.md)
+* [linux信息收集（V3）](nei-wang-shen-tou/linux-xin-xi-shou-ji-v3.md)
 * [Linux下信息收集](nei-wang-shen-tou/linux-xia-xin-xi-shou-ji.md)
 * [minilatz使用](nei-wang-shen-tou/minilatz-shi-yong.md)
 * [令牌窃取](nei-wang-shen-tou/ling-pai-qie-qu.md)
