@@ -42,5 +42,5 @@ key=ss' and 1=2 union select 1,2,3,4 --     报错
 
 ![](../.gitbook/assets/image%20%28134%29.png)
 
-未完待续……
+未完待续…
 
